@@ -1,14 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-configureBclToFastq.pl \
---input-dir /run/Data/Intensities/BaseCalls/ \
--o /output/Unaligned/ \
---no-eamss \
---fastq-cluster-count 0 \
---mismatches 1 \
---with-failed-reads \
-#Modify this later
-#--use-bases-mask Y251,Y8,Y8,Y251 \
---force &&
+runfolder="/run"
 
-make -C /output/Unaligned/ -j $cpu_num
+bcl2fastq \
+    --ignore-missing-bcls \
+    --ignore-missing-filter \
+    --ignore-missing-positions \
+    --ignore-missing-controls \
+    --barcode-mismatches 1 \
+    --loading-threads 4 \
+    --processing-threads 8 \
+    --writing-threads 4 \
+    --sample-sheet "${runfolder}/SampleSheet.csv" \
+    -R "${runfolder}" \
+    -o "${runfolder}/Analysis/Fastqs" \
+    -i "${runfolder}/Data/Intensities/BaseCalls"
+
