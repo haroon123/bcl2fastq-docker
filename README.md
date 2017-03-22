@@ -1,5 +1,8 @@
 # bcl2fatq-docker
 
 ## Quickstart
-`docker run -v ${RUN_FOLDER_PATH}:/run`
+```
+docker build .
+docker run -v ${RUN_FOLDER_PATH}:/run {docker_image_sha1}
+```
 
