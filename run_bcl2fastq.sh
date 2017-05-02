@@ -7,6 +7,7 @@ bcl2fastq \
     --ignore-missing-filter \
     --ignore-missing-positions \
     --ignore-missing-controls \
+    --with-failed-reads \
     --barcode-mismatches 1 \
     --loading-threads 4 \
     --processing-threads 8 \
