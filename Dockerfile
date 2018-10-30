@@ -2,7 +2,7 @@ FROM centos:7
 
 MAINTAINER Chris Probert <cprobert@stanford.edu>
 
-RUN yum -y install wget curl make rpmlib ; yum -y update && yum clean all
+RUN yum -y install wget curl make rpmlib unzip ; yum -y update && yum clean all
 
 RUN wget https://support.illumina.com/content/dam/illumina-support/documents/downloads/software/bcl2fastq/bcl2fastq2-v2-19-1-linux.zip && \
 unzip bcl2fastq2-v2-19-1-linux.zip && \
